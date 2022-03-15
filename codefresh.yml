@@ -28,6 +28,7 @@ steps:
       - GPG_FINGERPRINT=${{GPG_FINGERPRINT}}
       - SIGNINGKEY=${{SIGNINGKEY}}
     commands:
+      - export CF_API_KEY=${{MY_API_KEY}}
       - source /get-token/get-gh-token.sh
       - cf_export GITHUB_TOKEN
       - cf_export GPG_FINGERPRINT
