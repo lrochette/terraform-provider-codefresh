@@ -20,10 +20,12 @@ archives:
 checksum:
   name_template: '{{ .ProjectName }}_{{ .Version }}_SHA256SUMS'
   algorithm: sha256
+snapshot:
+  name_template: "{{ .Tag }}-next"
 signs:
   - artifacts: checksum
     args:
-      # if you are using this in a GitHub action or some other automated pipeline, you 
+      # if you are using this in a GitHub action or some other automated pipeline, you
       # need to pass the batch flag to indicate its not interactive.
       - "--batch"
       - "--local-user"
@@ -39,5 +41,4 @@ changelog:
   filters:
     exclude:
     - '^docs:'
-    - '^test:' 
-
+    - '^test:'
